@@ -8,36 +8,39 @@ on:
     branches: [master]
 
   workflow_dispatch:
-    inputs:
-      test_suite:
-        description: "Select test suite"
-        type: choice
-        options:
-          - all
-          - sanity
-          - regression
-          - e2e
-          - api
-          - web
-          - datadriven
-        default: "e2e"
+  inputs:
+    test_suite:
+      description: "Select test suite"
+      type: choice
+      options:
+        - all
+        - sanity
+        - regression
+        - e2e
+        - api
+        - web
+        - datadriven
+      default: e2e
+      required: true
 
-      browser:
-        description: "Select browser"
-        type: choice
-        options:
-          - chromium
-          - firefox
-          - webkit
-        default: "chromium"
+    browser:
+      description: "Select browser"
+      type: choice
+      options:
+        - chromium
+        - firefox
+        - webkit
+      default: chromium
+      required: true
 
-      mode:
-        description: "Run mode"
-        type: choice
-        options:
-          - headless
-          - headed
-        default: "headless"
+    mode:
+      description: "Run mode"
+      type: choice
+      options:
+        - headless
+        - headed
+      default: headless
+      required: true
 
 jobs:
   test:
